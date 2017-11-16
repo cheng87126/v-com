@@ -11,7 +11,7 @@
     <label for="upload">
         <img src="./img/upload.svg" alt="upload">
         <input type="file" name="upload" id="upload"
-            v-on:change="upload">
+            v-on:change="upload($event.target.files)">
     </label>
 </template>
 <script>
@@ -26,9 +26,9 @@ export default {
         action:String
     },
     methods:{
-        upload(){
+        upload(filesList){
             let formData = new FormData()
-            formData.append('upload', document.getElementById('upload').files[0])
+            formData.append('upload', filesList[0])
             
             let xhr = new XMLHttpRequest()
             xhr.open('POST', this.action)
