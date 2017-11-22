@@ -13,6 +13,7 @@
         <div>checkbox value:{{checkboxVal}}</div>
         <v-input id="test" name="test" placeholder="test input" v-model="testVal" v-on:blur="validInput">text</v-input>
         <div>input value:{{testVal}}</div>
+        <v-tree v-bind:tree-data="testTree"></v-tree>
     </div>
 </template>
 <script>
@@ -20,20 +21,41 @@ import Upload from './upload.vue'
 import Radio from './radio.vue'
 import Checkbox from './checkbox.vue'
 import Input from './input.vue'
+import Tree from './tree.vue'
 export default {
     name:'app',
     data(){
         return{
             radioVal:'js',
             checkboxVal:['Vue'],
-            testVal:'testVal'
+            testVal:'testVal',
+            testTree:[{
+                name:'name1',
+                children:[]
+            },{
+                name:'name2',
+                children:[{
+                    name:'subname',
+                    children:[{
+                        name:'subname1',
+                        children:[]
+                    }]
+                }]
+            },{
+                name:'name3',
+                children:[{
+                    name:'subname',
+                    children:[]
+                }]
+            }]
         }
     },
     components:{
         'v-upload':Upload,
         'v-radio':Radio,
         'v-checkbox':Checkbox,
-        'v-input':Input
+        'v-input':Input,
+        'v-tree':Tree
     },
     methods:{
         validInput(val){
