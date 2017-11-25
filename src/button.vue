@@ -47,7 +47,8 @@
 </style>
 <template>
     <div class="btn" 
-        v-bind:class="classObject">
+        v-bind:class="classObject"
+        v-on:click="clickFn($event)">
         <slot></slot>
     </div>
 </template>
@@ -74,6 +75,11 @@ export default {
                 'warning':this.type === 'warning',
                 'error':this.type === 'error'
             }
+        }
+    },
+    methods:{
+        clickFn(e){
+            this.$emit('click',e)
         }
     }
 }

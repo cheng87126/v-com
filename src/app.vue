@@ -14,7 +14,15 @@
         <v-input id="test" name="test" placeholder="test input" v-model="testVal" v-on:blur="validInput">text</v-input>
         <div>input value:{{testVal}}</div>
         <v-tree v-bind:tree-data="testTree"></v-tree>
-        <v-button size="s" type="success">test</v-button>
+        <v-button size="s" type="success" v-on:click="testModal($event)">test</v-button>
+        <v-modal v-model="showModal">
+            <div slot="header">标题</div>
+            <div>内容</div>
+            <div slot="footer">
+                <v-button size="s" type="success">确定</v-button>
+                <v-button size="s" type="error" v-on:click="testModal1($event)">取消</v-button>                
+            </div>
+        </v-modal>
     </div>
 </template>
 <script>
@@ -24,6 +32,7 @@ import Checkbox from './checkbox.vue'
 import Input from './input.vue'
 import Tree from './tree.vue'
 import Button from './button.vue'
+import Modal from './modal.vue'
 export default {
     name:'app',
     data(){
@@ -49,7 +58,8 @@ export default {
                     name:'subname',
                     children:[]
                 }]
-            }]
+            }],
+            showModal:false
         }
     },
     components:{
@@ -58,11 +68,20 @@ export default {
         'v-checkbox':Checkbox,
         'v-input':Input,
         'v-tree':Tree,
-        'v-button':Button
+        'v-button':Button,
+        'v-modal':Modal
     },
     methods:{
         validInput(val){
             console.log(val)
+        },
+        testModal(e){
+            this.showModal=!this.showModal
+            console.log(this.showModal)
+        },
+        testModal1(e){
+            this.showModal=!this.showModal
+            console.log('cancel')
         }
     }
 }
