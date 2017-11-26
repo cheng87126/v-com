@@ -23,6 +23,8 @@
                 <v-button size="s" type="error" v-on:click="testModal1($event)">取消</v-button>                
             </div>
         </v-modal>
+        <v-slider v-model="testSlider"></v-slider>
+        <div>slider vlaue:{{testSlider}}</div>
     </div>
 </template>
 <script>
@@ -33,6 +35,7 @@ import Input from './input.vue'
 import Tree from './tree.vue'
 import Button from './button.vue'
 import Modal from './modal.vue'
+import Slider from './slider.vue'
 export default {
     name:'app',
     data(){
@@ -59,7 +62,8 @@ export default {
                     children:[]
                 }]
             }],
-            showModal:false
+            showModal:false,
+            testSlider:10
         }
     },
     components:{
@@ -69,7 +73,8 @@ export default {
         'v-input':Input,
         'v-tree':Tree,
         'v-button':Button,
-        'v-modal':Modal
+        'v-modal':Modal,
+        'v-slider':Slider
     },
     methods:{
         validInput(val){
