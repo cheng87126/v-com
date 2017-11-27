@@ -25,6 +25,10 @@
         </v-modal>
         <v-slider v-model="testSlider"></v-slider>
         <div>slider vlaue:{{testSlider}}</div>
+        <v-select 
+            v-bind:list="testSelect"
+            v-model="selected">
+        </v-select>
     </div>
 </template>
 <script>
@@ -36,6 +40,7 @@ import Tree from './tree.vue'
 import Button from './button.vue'
 import Modal from './modal.vue'
 import Slider from './slider.vue'
+import Select from './select.vue'
 export default {
     name:'app',
     data(){
@@ -63,7 +68,18 @@ export default {
                 }]
             }],
             showModal:false,
-            testSlider:10
+            testSlider:10,
+            testSelect:[{
+                value:'html',
+                label:'html'
+            },{
+                value:'css',
+                label:'css'
+            },{
+                value:'js',
+                label:'js'
+            }],
+            selected:''
         }
     },
     components:{
@@ -74,7 +90,8 @@ export default {
         'v-tree':Tree,
         'v-button':Button,
         'v-modal':Modal,
-        'v-slider':Slider
+        'v-slider':Slider,
+        'v-select':Select
     },
     methods:{
         validInput(val){
