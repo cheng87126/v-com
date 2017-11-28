@@ -29,6 +29,7 @@
             v-bind:list="testSelect"
             v-model="selected">
         </v-select>
+        <v-play v-model="testPlay"></v-play>
     </div>
 </template>
 <script>
@@ -41,6 +42,7 @@ import Button from './button.vue'
 import Modal from './modal.vue'
 import Slider from './slider.vue'
 import Select from './select.vue'
+import Play from './play.vue'
 export default {
     name:'app',
     data(){
@@ -79,7 +81,8 @@ export default {
                 value:'js',
                 label:'js'
             }],
-            selected:''
+            selected:'',
+            testPlay:true
         }
     },
     components:{
@@ -91,7 +94,8 @@ export default {
         'v-button':Button,
         'v-modal':Modal,
         'v-slider':Slider,
-        'v-select':Select
+        'v-select':Select,
+        'v-play':Play
     },
     methods:{
         validInput(val){
