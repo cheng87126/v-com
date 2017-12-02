@@ -31,6 +31,8 @@
         </v-select>
         <v-play v-model="testPlay"></v-play>
         <v-rate v-model="testRate" v-bind:light="true"></v-rate>
+        <v-switch v-model="testSwitch"></v-switch>
+        <div>testSwitch : {{testSwitch}}</div>
     </div>
 </template>
 <script>
@@ -45,6 +47,7 @@ import Slider from './slider.vue'
 import Select from './select.vue'
 import Play from './play.vue'
 import Rate from './rate.vue'
+import SwitchOnoff from './switch.vue'
 export default {
     name:'app',
     data(){
@@ -85,7 +88,8 @@ export default {
             }],
             selected:'',
             testPlay:true,
-            testRate:4
+            testRate:4,
+            testSwitch:false
         }
     },
     components:{
@@ -99,7 +103,8 @@ export default {
         'v-slider':Slider,
         'v-select':Select,
         'v-play':Play,
-        'v-rate':Rate
+        'v-rate':Rate,
+        'v-switch':SwitchOnoff
     },
     methods:{
         validInput(val){
