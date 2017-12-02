@@ -30,6 +30,7 @@
             v-model="selected">
         </v-select>
         <v-play v-model="testPlay"></v-play>
+        <v-rate v-model="testRate" v-bind:light="true"></v-rate>
     </div>
 </template>
 <script>
@@ -43,6 +44,7 @@ import Modal from './modal.vue'
 import Slider from './slider.vue'
 import Select from './select.vue'
 import Play from './play.vue'
+import Rate from './rate.vue'
 export default {
     name:'app',
     data(){
@@ -82,7 +84,8 @@ export default {
                 label:'js'
             }],
             selected:'',
-            testPlay:true
+            testPlay:true,
+            testRate:4
         }
     },
     components:{
@@ -95,7 +98,8 @@ export default {
         'v-modal':Modal,
         'v-slider':Slider,
         'v-select':Select,
-        'v-play':Play
+        'v-play':Play,
+        'v-rate':Rate
     },
     methods:{
         validInput(val){
