@@ -30,7 +30,8 @@
             v-model="selected">
         </v-select>
         <v-play v-model="testPlay"></v-play>
-        <v-rate v-model="testRate" v-bind:light="true"></v-rate>
+        <v-rate v-model="testRate" style="font-size:32px;"></v-rate>
+        <div>testRate : {{testRate}}</div>
         <v-switch v-model="testSwitch"></v-switch>
         <div>testSwitch : {{testSwitch}}</div>
     </div>
@@ -88,7 +89,7 @@ export default {
             }],
             selected:'',
             testPlay:true,
-            testRate:4,
+            testRate:3,
             testSwitch:false
         }
     },
