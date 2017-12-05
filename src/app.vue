@@ -34,6 +34,7 @@
         <div>testRate : {{testRate}}</div>
         <v-switch v-model="testSwitch"></v-switch>
         <div>testSwitch : {{testSwitch}}</div>
+        <v-progress v-bind:value="testProgress"></v-progress>
     </div>
 </template>
 <script>
@@ -49,6 +50,7 @@ import Select from './select.vue'
 import Play from './play.vue'
 import Rate from './rate.vue'
 import SwitchOnoff from './switch.vue'
+import Progress from './progress.vue'
 export default {
     name:'app',
     data(){
@@ -90,7 +92,8 @@ export default {
             selected:'',
             testPlay:true,
             testRate:3,
-            testSwitch:false
+            testSwitch:false,
+            testProgress:50
         }
     },
     components:{
@@ -105,7 +108,8 @@ export default {
         'v-select':Select,
         'v-play':Play,
         'v-rate':Rate,
-        'v-switch':SwitchOnoff
+        'v-switch':SwitchOnoff,
+        'v-progress':Progress
     },
     methods:{
         validInput(val){
