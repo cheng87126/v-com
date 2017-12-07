@@ -35,6 +35,7 @@
         <v-switch v-model="testSwitch"></v-switch>
         <div>testSwitch : {{testSwitch}}</div>
         <v-progress v-bind:value="testProgress"></v-progress>
+        <v-breadcrumb v-bind:name="testBreadcrumb" v-bind:current="2"></v-breadcrumb>
     </div>
 </template>
 <script>
@@ -51,6 +52,7 @@ import Play from './play.vue'
 import Rate from './rate.vue'
 import SwitchOnoff from './switch.vue'
 import Progress from './progress.vue'
+import Breadcrumb from './breadcrumb.vue'
 export default {
     name:'app',
     data(){
@@ -93,7 +95,8 @@ export default {
             testPlay:true,
             testRate:3,
             testSwitch:false,
-            testProgress:50
+            testProgress:50,
+            testBreadcrumb:['name1','name2','name3']
         }
     },
     components:{
@@ -109,7 +112,8 @@ export default {
         'v-play':Play,
         'v-rate':Rate,
         'v-switch':SwitchOnoff,
-        'v-progress':Progress
+        'v-progress':Progress,
+        'v-breadcrumb':Breadcrumb
     },
     methods:{
         validInput(val){
