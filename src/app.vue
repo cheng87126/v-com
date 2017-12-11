@@ -46,6 +46,7 @@
             <v-tabContent v-model="currentTitle">content2</v-tabContent>
             <v-tabContent v-model="currentTitle">content3</v-tabContent>
         </v-tabContentBox>
+        <v-toolTip style="display:inline-block;" tips="This is tooltip">test tooltip</v-toolTip>
     </div>
 </template>
 <script>
@@ -67,6 +68,7 @@ import TabTitle from './tabTitle.vue'
 import TabContent from './tabContent.vue'
 import TabTitleBox from './tabTitleBox.vue'
 import TabContentBox from './tabContentBox.vue'
+import ToolTip from './tooltip.vue'
 export default {
     name:'app',
     data(){
@@ -132,7 +134,8 @@ export default {
         'v-tabTitle':TabTitle,
         'v-tabContent':TabContent,
         'v-tabTitleBox':TabTitleBox,
-        'v-tabContentBox':TabContentBox
+        'v-tabContentBox':TabContentBox,
+        'v-toolTip':ToolTip
     },
     methods:{
         validInput(val){
