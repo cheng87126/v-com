@@ -47,6 +47,11 @@
             <v-tabContent v-model="currentTitle">content3</v-tabContent>
         </v-tabContentBox>
         <v-toolTip style="display:inline-block;" tips="This is tooltip">test tooltip</v-toolTip>
+        <div>
+            <v-timeline v-bind:timeline="{time:'2017/12/12',content:'timeline'}"></v-timeline>
+            <v-timeline v-bind:timeline="{time:'2017/12/12',content:'timeline'}"></v-timeline>        
+            <v-timeline v-bind:timeline="{time:'2017/12/12',content:'timeline'}"></v-timeline>
+        </div>
     </div>
 </template>
 <script>
@@ -69,6 +74,7 @@ import TabContent from './tabContent.vue'
 import TabTitleBox from './tabTitleBox.vue'
 import TabContentBox from './tabContentBox.vue'
 import ToolTip from './tooltip.vue'
+import Timeline from './timeline.vue'
 export default {
     name:'app',
     data(){
@@ -135,7 +141,8 @@ export default {
         'v-tabContent':TabContent,
         'v-tabTitleBox':TabTitleBox,
         'v-tabContentBox':TabContentBox,
-        'v-toolTip':ToolTip
+        'v-toolTip':ToolTip,
+        'v-timeline':Timeline
     },
     methods:{
         validInput(val){
