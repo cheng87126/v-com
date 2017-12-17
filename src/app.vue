@@ -52,6 +52,7 @@
             <v-timeline v-bind:timeline="{time:'2017/12/12',content:'timeline'}"></v-timeline>        
             <v-timeline v-bind:timeline="{time:'2017/12/12',content:'timeline'}"></v-timeline>
         </div>
+        <v-colorpicker></v-colorpicker>
     </div>
 </template>
 <script>
@@ -75,6 +76,7 @@ import TabTitleBox from './tabTitleBox.vue'
 import TabContentBox from './tabContentBox.vue'
 import ToolTip from './tooltip.vue'
 import Timeline from './timeline.vue'
+import Colorpicker from './colorpicker.vue'
 export default {
     name:'app',
     data(){
@@ -142,7 +144,8 @@ export default {
         'v-tabTitleBox':TabTitleBox,
         'v-tabContentBox':TabContentBox,
         'v-toolTip':ToolTip,
-        'v-timeline':Timeline
+        'v-timeline':Timeline,
+        'v-colorpicker':Colorpicker
     },
     methods:{
         validInput(val){
