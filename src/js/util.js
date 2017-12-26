@@ -1,3 +1,6 @@
+/**
+ * 鼠标事件兼容性
+ */
 let _eventCompat = function(event) {
 	let type = event.type
 	if (type == 'DOMMouseScroll' || type == 'mousewheel') {
@@ -22,4 +25,11 @@ export function addMouseEvent(el, type, fn, capture){
 	el.addEventListener(type, function(event) {
 		fn.call(this, _eventCompat(event));
 	}, capture || false);
+}
+
+/**
+ * 获取元素高度
+ */
+export function getElemHeight(el){
+	return el.getBoundingClientRect().height
 }

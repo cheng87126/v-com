@@ -54,6 +54,11 @@
         </div>
         <v-colorpicker></v-colorpicker>
         <v-backTop v-bind:position="500"></v-backTop>
+        <v-scrollbar style="width:300px;height:300px">
+            <p style="height:200px;background:#eee;">test scrollbar0</p>
+            <p style="height:200px;background:#eee;">test scrollbar1</p>
+            <p style="height:200px;background:#eee;">test scrollbar2</p>
+        </v-scrollbar>
     </div>
 </template>
 <script>
@@ -79,6 +84,7 @@ import ToolTip from './tooltip.vue'
 import Timeline from './timeline.vue'
 import Colorpicker from './colorpicker.vue'
 import BackTop from './backTop.vue'
+import Scrollbar from './scrollbar.vue'
 export default {
     name:'app',
     data(){
@@ -148,7 +154,8 @@ export default {
         'v-toolTip':ToolTip,
         'v-timeline':Timeline,
         'v-colorpicker':Colorpicker,
-        'v-backTop':BackTop
+        'v-backTop':BackTop,
+        'v-scrollbar':Scrollbar
     },
     methods:{
         validInput(val){
