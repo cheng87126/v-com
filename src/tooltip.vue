@@ -37,7 +37,7 @@ export default {
     name:'toolTip',
     data(){
         return {
-            showTip:true,
+            showTip:false,
             left:0,
             top:0
         }
