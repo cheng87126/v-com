@@ -1,11 +1,11 @@
 <style scoped>
-    label{
-        display: inline-block;
-        cursor: pointer;
-    }
-    #upload{
-        display: none;
-    }
+label{
+    display: inline-block;
+    cursor: pointer;
+}
+#upload{
+    display: none;
+}
 </style>
 <template>
     <label for="upload">
@@ -23,11 +23,14 @@ export default {
         }
     },
     props:{
-        action:String
+        action:String,
+        afterUpload:Function,
+        fn:String
     },
     methods:{
         upload(filesList){
-            let formData = new FormData()
+            let formData = new FormData(),
+                afterUpload = this.afterUpload
             formData.append('upload', filesList[0])
             
             let xhr = new XMLHttpRequest()
@@ -38,6 +41,10 @@ export default {
                 } else {
                     console.log('error')
                 }
+                typeof afterUpload === 'function' && afterUpload()
+            }
+            xhr.onerror = () => {
+                typeof afterUpload === 'function' && afterUpload()
             }
             xhr.send(formData)
         }

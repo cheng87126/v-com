@@ -3,7 +3,9 @@
 </style>
 <template>
     <div id="app">
-        <v-upload action="/"></v-upload>
+        <v-upload 
+            action="/"
+            v-bind:after-upload="testafter"></v-upload>
         <v-radio name="web" id="js-id" value="js" v-bind:checked.sync="radioVal">js</v-radio>
         <v-radio name="web" id="css-id" value="css" v-bind:checked.sync="radioVal">css</v-radio>
         <div>radio value:{{radioVal}}</div>
@@ -158,6 +160,9 @@ export default {
         'v-scrollbar':Scrollbar
     },
     methods:{
+        testafter(){
+            console.log('after upload')
+        },
         validInput(val){
             console.log(val)
         },
