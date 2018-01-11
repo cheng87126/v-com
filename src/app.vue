@@ -95,20 +95,26 @@ export default {
             checkboxVal:['Vue'],
             testVal:'testVal',
             testTree:[{
+                id:1,
                 name:'name1',
                 children:[]
             },{
+                id:2,
                 name:'name2',
                 children:[{
+                    id:3,
                     name:'subname',
                     children:[{
+                        id:4,
                         name:'subname1',
                         children:[]
                     }]
                 }]
             },{
+                id:5,
                 name:'name3',
                 children:[{
+                    id:6,
                     name:'subname',
                     children:[]
                 }]
