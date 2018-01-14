@@ -12,16 +12,16 @@
     height: 16px;
     top: 50%;
     border-radius: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%,-50%);
     background-color: #3399CC;
     cursor: pointer;
 }
 </style>
 <template>
-    <div class="slider">
+    <div class="slider" ref="slider">
         <div class="slider-in"
             v-on:mousedown="dragStart($event)"
-            v-bind:style="{ left: left-8 + 'px' }"></div>
+            v-bind:style="{ left: left + 'px' }"></div>
     </div>
 </template>
 <script>
@@ -36,6 +36,12 @@ export default {
     props:{
         value:{
             default:0
+        },
+        min:{
+            default:0
+        },
+        max:{
+            default:100
         }
     },
     methods:{
@@ -47,16 +53,21 @@ export default {
             if(!this.dragAble) return
             let disX = e.clientX - this.x
             let left = this.left + disX
-            this.left = left > 500 ? 500 : left < 0 ? 0 : left
+            this.left = left > this.width ? this.width : left < 0 ? 0 : left
             this.x = e.clientX
-
-            this.$emit('input',this.left)
+            let val = this.left * (this.max - this.min) / this.width + this.min
+            this.$emit('input',val)
         },
         dragEnd(){
             this.dragAble = false
         }
     },
     mounted(){
+        this.width = this.$refs.slider.getBoundingClientRect().width
+        let value = this.value < this.min ? this.min : this.value > this.max ? this.max : this.value
+        this.left = (value - this.min) / (this.max - this.min) * this.width 
+        this.$emit('input',value)
+
         document.addEventListener('mousemove',this.drag,false)
         document.addEventListener('mouseup',this.dragEnd,false)
     },

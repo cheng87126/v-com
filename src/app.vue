@@ -25,7 +25,7 @@
                 <v-button size="s" type="error" v-on:click="testModal1($event)">取消</v-button>                
             </div>
         </v-modal>
-        <v-slider v-model="testSlider"></v-slider>
+        <v-slider v-model="testSlider" v-bind:min="100" v-bind:max="500"></v-slider>
         <div>slider vlaue:{{testSlider}}</div>
         <v-select 
             v-bind:list="testSelect"
@@ -120,7 +120,7 @@ export default {
                 }]
             }],
             showModal:false,
-            testSlider:10,
+            testSlider:300,
             testSelect:[{
                 value:'html',
                 label:'html'
