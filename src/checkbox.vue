@@ -7,18 +7,23 @@ input[type="checkbox"] + label span {
     vertical-align: middle; 
     width: 20px;
     height: 20px;
-    border: 2px solid #888;
-    border-radius: 4px; 
-    background: radial-gradient(#eee, #aaa); 
+    border: 2px solid skyblue;
+    border-radius: 4px;
+    margin-right: 5px;
 }
 input[type="checkbox"]:disabled + label{
     color: #919191;
 }
+input[type="checkbox"]:checked + label span{
+    background-color: skyblue;
+}
 input[type="checkbox"]:checked + label span::before { 
-    content: "✓"; 
-    color: #9999FF; 
-    text-align: center; 
-    font-size: 20px; 
+    content: '';
+    background: url(./img/check.png) center center;
+    background-size: 20px 20px;
+    display: block;
+    width: 20px;
+    height: 20px;
 }
 </style>
 <template>

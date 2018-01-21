@@ -30,6 +30,9 @@ module.exports = {
 			}
 		]
 	},
+	devServer: {
+		contentBase: './dist'
+	},
 	plugins:[
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({

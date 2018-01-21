@@ -1,49 +1,51 @@
 <style>
-    .select{
-        width: 200px;
-        position: relative;
-    }
-    .select-box{
-        display: inline-block;
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        border: 1px solid skyblue;
-        border-radius: 4px;
-    }
-    .select-box::after{
-        content: '';
-        display: block;
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 10px solid skyblue;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-    .selected.select-box::after{
-        transform: rotateZ(180deg)
-    }
-    .select ul{
-        margin: 0;
-        padding:0;   
-    }
-    .select li{
-        line-height: 30px;
-        padding-left: 10px;
-        list-style: none;
-    }
-    .select li:hover{
-        background-color: #efefef;
-    }
-    .dropdwon{
-        position: absolute;
-        top: 32px;
-        width: 100%;
-        box-shadow: 0 0 2px #000;
-    }
+.select{
+    width: 200px;
+    position: relative;
+}
+.select-box{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid skyblue;
+    border-radius: 4px;
+}
+.select-box::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid skyblue;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.selected.select-box::after{
+    transform: rotateZ(180deg)
+}
+.select ul{
+    margin: 0;
+    padding:0;   
+}
+.select li{
+    line-height: 30px;
+    padding-left: 10px;
+    list-style: none;
+}
+.select li:hover{
+    background-color: #efefef;
+}
+.dropdwon{
+    position: absolute;
+    top: 32px;
+    width: 100%;
+    box-shadow: 0 0 2px #000;
+    background: #fff;
+    z-index: 1;
+}
 </style>
 <template>
     <div class="select">
